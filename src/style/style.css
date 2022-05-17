@@ -151,6 +151,93 @@
     width: 440px;
     text-align: start;
 }
+
+
+
+    /*    -----------------    MODAL LOGIN   ---------------   */
+#dadosLogin{
+    width: 496px;
+    Height: 400px;
+    background-color: var(--background-branco);
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dadosLogin > input{
+    width: 440px;
+    height: 52px;
+    border: 1.5px solid #DEE2E6;
+    border-radius: 12px;
+}
+
+#dadosLogin > button{
+    background-color: var(--background-cinza);
+    color: #F8F9FA;
+    box-sizing: border-box;
+    border-radius: 32px;
+    width: 440px;
+    height: 52px;
+    background-color: var(--rosa-color);
+    border: none;
+    cursor: pointer;
+}
+
+#dadosLogin > label{
+    width: 440px;
+    text-align: start;
+}
+#buttonLogar{
+    margin-top: 20px;
+}
+
+#labelSenha, #labelEmail{
+    margin-top: 30px;
+}
+
+
+/*    -----------------    MODAL CADASTRO   ---------------   */
+#dadosCadastro{
+    width: 496px;
+    Height: 400px;
+    background-color: var(--background-branco);
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dadosCadastro > input{
+    width: 440px;
+    height: 52px;
+    border: 1.5px solid #DEE2E6;
+    border-radius: 12px;
+}
+
+#dadosCadastro > button{
+    background-color: var(--background-cinza);
+    color: #F8F9FA;
+    box-sizing: border-box;
+    border-radius: 32px;
+    width: 440px;
+    height: 52px;
+    background-color: var(--rosa-color);
+    border: none;
+    cursor: pointer;
+}
+
+#dadosCadastro > label{
+    width: 440px;
+    text-align: start;
+}
+
+#labelSenhaCadastro, #labelEmailCadastro, #labelNomeCadastro, #criarCadastro{
+    margin-top: 20px;
+}
+
 .modal-off{
     display: none;
 }
