@@ -1,23 +1,73 @@
 <!--  HOME PAGE DE PRODUTOS COM A OPÇÃO DE LOGAR USUÁRIO AO LADO DA BARRA DE PROCURAR-->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+</head>
+<body>
+    
+
+
+
+
+<!--- MODAL DE LOGIN  -->
+    <div id='modalLogin' class="modal-on">
+        <div id="quadro">
+            <div id="header">
+                <h3>Login</h3>
+                <button>X</button>
+            </div>
+            <div id="dadosLogin">
+                 <label for="inputEmailLogin" id="labelEmail">Email</label>
+                <input type="text" id="inputEmailLogin" placeholder="   Digite o email" />
+
+                <label for="inputSenhaLogin" id="labelSenha">Senha</label>
+                <input type="password" id="inputSenhaLogin" placeholder="   Digite a senha" />
+            
+                <button id="buttonLogar">Login</button>
+                <button>Criar Cadastro</button>
+            </div>
+        </div>
+    </div>
+
+<!--- MODAL DE CADASTRO  -->
+    <div id='modalCadastro' class="modal-off">
+        <div id="quadro">
+            <div id="header">
+                <h3>Cadastro</h3>
+                <button>X</button>
+            </div>
+            <div id="dadosCadastro">
+                <label for="inputNomeCadastro" id="labelNomeCadastro">Nome</label>
+                <input type="text" id="inputNomeCadastro" placeholder="   Digite seu nome" />
+            
+                <label for="inputEmailCadastro" id="labelEmailCadastro">Email</label>
+                <input type="text" id="inputEmailCadastro" placeholder="   Digite seu email" />
+
+                <label for="inputSenhaCadastro" id="labelSenhaCadastro">Senha</label>
+                <input type="password" id="inputSenhaCadastro" placeholder="   Digite a senha" />
+            
+                <button id="criarCadastro">Criar cadastro</button>
+            </div>
+        </div>
+    </div>
+    <script type ="module" src="/src/javascript/index.js"></script>
+    <script type="module" src="/src/models/cadastroUsuario.js"></script>
+    <script type='module' src="/src/models/modelLogin.js"></script>
+    <script type='module' src="/src/controller/Api.js"></script>
+</body>
+</html>
     <link rel="stylesheet" href="./src/style/reset.css">
     <link rel="stylesheet" href="./src/style/style.css">
     <title>template</title>
-
 </head>
-
 <body>
     <section id="templatesCards">
-
     </section>
-
     <script type="module" src="./src/javascript/templateCards.js"></script>
 </body>
-
 </html>
