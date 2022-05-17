@@ -5,3 +5,7 @@ class CadastroUsuario {
     this.password = password;
   }
 }
+
+export {CadastroUsuario}
+
+

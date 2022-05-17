@@ -1,4 +1,4 @@
-class LoginUsuario {
+export class LoginUsuario {
   constructor(email, password) {
     this.email = email;
     this.password = password;
