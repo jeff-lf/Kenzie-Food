@@ -56,3 +56,101 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
+:root {
+    --rosa-color: #FF2253;
+    --background-cinza: #F8F9FA;
+    --letras-cinza: #868E96;
+    --background-branco: #FFFFFF;
+}
+
+
+.modal-on{
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#quadro{
+    Width: 496px;
+    Height: 755px;
+    margin-top: 53px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+#header{
+    background-color: var(--background-cinza);
+    width: 496px;
+    height: 70px;
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header > h3{
+    margin-left: 28px;
+}
+
+#header > button{
+    Width: 31px;
+    Height: 30px;
+    border-radius: 4px;
+    border: none;
+    color: var(--letras-cinza);
+    cursor: pointer;
+    margin-right: 28px;
+}
+
+#dados{
+    width: 496px;
+    Height: 685px;
+    background-color: var(--background-branco);
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+#dados > input{
+    width: 440px;
+    height: 52px;
+    border: 1.5px solid #DEE2E6;
+    border-radius: 12px;
+}
+#buttons > input{
+    Width: 136px;
+    Height: 40px;
+    color: #868E96;
+    cursor: pointer;
+    background: #F8F9FA;
+    border: 1.5px solid #F8F9FA;
+    border-radius: 32px;
+}
+
+#dados > button{
+    background-color: var(--background-cinza);
+    color: #F8F9FA;
+    box-sizing: border-box;
+    border-radius: 32px;
+    width: 440px;
+    height: 52px;
+    background-color: var(--rosa-color);
+    border: none;
+    cursor: pointer;
+}
+
+#dados > label{
+    width: 440px;
+    text-align: start;
+}
+.modal-off{
+    display: none;
+}
