@@ -1,15 +1,4 @@
-
-class Api{
-
-    static URL_Api = 'https://api-kenzie-food.herokuapp.com'
-
-    static async registrarUsuario(objetoUsuario){
-        const response = await fetch(`${this.URL_Api}/auth/register`, 
-        {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-
-export class Api {
+class Api {
 
     static URL_Api = 'https://api-kenzie-food.herokuapp.com'
 
@@ -26,12 +15,6 @@ export class Api {
     }
 
 
-    static async logarUsuario(objetoUsuarioLogin){
-        const response = await fetch(`${this.URL_Api}/auth/login`, 
-        {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-
     static async logarUsuario(objetoUsuarioLogin) {
         const response = await fetch(`${this.URL_Api}/auth/login`, {
             method: 'POST',
@@ -45,10 +28,6 @@ export class Api {
         return result
     }
 
-    static async listarProdutos(){
-        const response = await fetch(`${this.URL_Api}/products`, 
-        {
-            method: 'GET'  
 
     static async listarProdutos() {
         const response = await fetch(`${this.URL_Api}/products`, {
@@ -60,16 +39,7 @@ export class Api {
 
         return result
 
-    }
-
-    static async listarMeusProdutos(){
-        const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/my/products`, 
-        {
-            method: 'GET',
-            headers: {
-                
-                'Authorization': `Bearer ${token}`}  
+    } 
 
     static async listarMeusProdutos() {
         const token = localStorage.getItem('Token')
@@ -85,15 +55,6 @@ export class Api {
 
     }
 
-    static async criarProduto(objetoDadosProduto){
-        const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/my/products`, 
-        {
-            method: 'POST',
-            headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                    },
 
     static async criarProduto(objetoDadosProduto) {
         const token = localStorage.getItem('Token')
@@ -114,16 +75,6 @@ export class Api {
     }
 
 
-    static async atualizarProduto(objetoDadosProduto, idProduto){
-        const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/my/products/${idProduto}`, 
-        {
-            method: 'PATCH',
-            headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                    },
-
     static async atualizarProduto(objetoDadosProduto, idProduto) {
         const token = localStorage.getItem('Token')
         const response = await fetch(`${this.URL_Api}/my/products/${idProduto}`, {
@@ -143,18 +94,6 @@ export class Api {
     }
 
 
-    static async deletarProduto(idProduto){
-        const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/my/products/${idProduto}`, 
-        {
-            method: 'DELETE',
-            headers: {'Authorization': `Bearer ${token}`}
-        })
-
-        //const result = await response.json()
-
-        //return result
-
     static async deletarProduto(idProduto) {
         const token = localStorage.getItem('Token')
         const response = await fetch(`${this.URL_Api}/my/products/${idProduto}`, {
@@ -169,14 +108,6 @@ export class Api {
 
     }
 
-
-
-    static async listarCarrinho(){
-        const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/cart`, 
-        {
-            method: 'GET',
-            headers: {'Authorization': `Bearer ${token}`}  
 
     static async listarCarrinho() {
         const token = localStorage.getItem('Token')
@@ -193,43 +124,21 @@ export class Api {
     }
 
 
-    static async adicionarEmQuantidade(objetoQuantidade){
-        const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/cart/add`, 
-        {
-
     static async adicionarEmQuantidade(objetoQuantidade) {
         const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/cart/add`, {
-
+        const response = await fetch(`${this.URL_Api}/cart/add`, 
+            {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
 
                 },
-
-            },
-
             body: JSON.stringify(objetoQuantidade)
-        })
-
-        const result = await response.json()
-        return result
-
-    
-    }
-
-
-    static async removerProduto(idProduto){
-        const token = localStorage.getItem('Token')
-        const response = await fetch(`${this.URL_Api}/cart/remove/${idProduto}`, 
-        {
-            method: 'DELETE',
-            headers: {'Authorization': `Bearer ${token}`}
-
-
-    }
+            })
+            const result = await response.json()
+            return result
+        }
 
 
     static async removerProduto(idProduto) {
@@ -253,8 +162,8 @@ export class Api {
 export {Api}
 
 
-}
 
-export {Api}
+
+
 
 
