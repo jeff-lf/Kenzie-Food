@@ -1,0 +1,77 @@
+#headerHome {
+    width: 1600px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 45px;
+    box-shadow: 0px 0px 40px -18px rgba(0, 0, 0, 0.25);
+}
+
+#logo {
+    display: flex;
+}
+
+#logo h1 {
+    font-size: 30px;
+}
+
+#logo h2 {
+    font-size: 17px;
+    color: #FF2253;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+
+#pesquisaHome {
+    width: 312px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E9ECEF;
+    margin-right: 231px;
+}
+
+#filtrosDaHome {
+    display: flex;
+    align-content: center;
+    margin-left: 25px;
+    width: 1070px;
+}
+
+.layoutButton {
+    border-radius: 32px;
+    width: 136px;
+    height: 48px;
+    font-size: 16px;
+    background-color: #F3EEF5;
+    margin: 14px;
+    cursor: pointer;
+}
+
+#carrinhoComprasEstatico {
+    width: 320px;
+    height: 56px;
+    font-size: 16px;
+    display: flex;
+    background-color: #FF2253;
+    color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#carrinhoComprasEstatico img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#carrinhoComprasEstatico {}
+
+.layoutButton:hover {
+    color: white;
+    background-color: #FF2253;
+}
