@@ -1,5 +1,4 @@
 #headerHome {
-    width: 1600px;
     height: 72px;
     display: flex;
     justify-content: space-between;
@@ -43,17 +42,29 @@
     height: 50px;
     cursor: pointer;
     margin-right: 40px;
+    transition: all 0.5s;
+    border: 1px solid transparent;
+}
+
+#imgLogin:hover {
+    border: 1px solid #136497;
+    border-radius: 50%;
 }
 
 #displayVitrine {
     display: flex;
-    align-items: center;
 }
 
 #filtrosDaHome {
     display: flex;
     align-content: center;
-    margin-left: 25px;
+    margin-right: 229px;
+    margin-top: 50px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#templateCards {
     width: 1070px;
 }
 
@@ -89,7 +100,6 @@
     margin-right: 53px;
 }
 
-#carrinhoComprasEstatico {}
 
 .layoutButton:hover {
     color: white;
