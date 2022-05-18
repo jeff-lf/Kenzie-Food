@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/style/reset.css">
     <link rel="stylesheet" href="./src/style/home.css">
+    <link rel="stylesheet" href="./src/style/style.css">
     <title>home-page</title>
 </head>
 
@@ -22,21 +23,24 @@
             <img src="https://cdn-icons.flaticon.com/png/512/3293/premium/3293466.png?token=exp=1652907164~hmac=5eb8f0f79ae68871b58b649998cd3ec0" alt="login" id="imgLogin">
         </div>
     </header>
-    <section id="displayVitrine">
-        <div id="filtrosDaHome">
+    <div id="filtrosDaHome">
+        <div>
             <button class="layoutButton" id="buttonTodos">Todos</button>
             <button class="layoutButton" id="buttonPao">&#129366 Panificadora</button>
             <button class="layoutButton" id="buttonFrutas">&#127826 Frutas</button>
             <button class="layoutButton" id="buttonBebidas">&#129346 Bebidas</button>
         </div>
-        <div id='#templatesCards'></div>
+        <div id="carrinhoComprasEstatico">
+            <img src="./src/imagens/shop.png" alt="">
+            <h3>Carrinho</h3>
+        </div>
+    </div>
+    <section id="displayVitrine">
+        <div id='templatesCards'></div>
         <!-- AQUI FAZ O APPEND DOS CARDS -->
 
         <aside>
-            <div id="carrinhoComprasEstatico">
-                <img src="./src/imagens/shop.png" alt="">
-                <h3>Carrinho</h3>
-            </div>
+
         </aside>
     </section>
     <script type="module" src="./src/javascript/templateCards.js"></script>

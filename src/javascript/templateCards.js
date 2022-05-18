@@ -7,7 +7,7 @@ async function templateCards() {
     startTemplate.appendChild(ul)
     ul.innerHTML = ''
 
-    //    const URL = 'https://api-kenzie-food.herokuapp.com/products'
+    const URL = 'https://api-kenzie-food.herokuapp.com/products'
 
     const dadosDoCard = await Api.listarProdutos()
     console.log(dadosDoCard)

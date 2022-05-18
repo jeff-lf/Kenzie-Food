@@ -1,5 +1,5 @@
 #headerHome {
-    width: 1600px;
+    /* width: 1600px; */
     height: 72px;
     display: flex;
     justify-content: space-between;
@@ -47,13 +47,18 @@
 
 #displayVitrine {
     display: flex;
-    align-items: center;
 }
 
 #filtrosDaHome {
     display: flex;
     align-content: center;
-    margin-left: 25px;
+    margin-right: 229px;
+    margin-top: 50px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#templateCards {
     width: 1070px;
 }
 
