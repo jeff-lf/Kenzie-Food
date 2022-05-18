@@ -10,6 +10,7 @@ async function templateCards() {
     //    const URL = 'https://api-kenzie-food.herokuapp.com/products'
 
     const dadosDoCard = await Api.listarProdutos()
+    console.log(dadosDoCard)
     dadosDoCard.forEach((elementoAtual) => {
         const li = document.createElement('li')
         li.classList.add('liVitrine')

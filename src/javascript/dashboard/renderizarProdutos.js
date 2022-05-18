@@ -62,6 +62,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
         })        
     })
 
+
     //Editar Produto
     btnEditar.addEventListener('click',async function(){
         const divDel = document.getElementById('modalEditar')
@@ -90,6 +91,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
         console.log(produtoParaEditar)
       
     })
+
     
     //setar as classes
     div.classList.add('produtoItem')
@@ -98,6 +100,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     divImg.classList.add("divImg")
     desc.classList.add('descricao')
     divBotoes.classList.add('divBotoes')
+
 
     //appends
     divBotoes.append(btnEditar,btnExcluir)
@@ -147,11 +150,14 @@ btnFecharModel.addEventListener("click",()=>{
     model.classList.remove("modal-on")
     model.classList.add("modal-off")
 })
+
+
 btnFecharModelEditar.addEventListener("click",()=>{
     let model = document.querySelector("#modalEditar")
     model.classList.remove("modal-on")
     model.classList.add("modal-off")
 })
+
 
 btnFecharDeletar.forEach(element=>{
     element.addEventListener("click", ()=>{
