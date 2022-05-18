@@ -1,6 +1,5 @@
 import {Api} from '/src/controller/Api.js'
 
-
 export async function  obterInformacoesProdutos(filtro){
     document.querySelector(".produtos").innerHTML = ''
     const dados = await Api.listarMeusProdutos()
@@ -17,10 +16,7 @@ export async function  obterInformacoesProdutos(filtro){
         }
         else if(filtro == "Todos"){
             renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
-        }
-        
-
-        
+        }               
     })
 }
 
