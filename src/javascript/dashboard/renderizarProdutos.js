@@ -1,7 +1,8 @@
 import {Api} from '/src/controller/Api.js'
 
+
 export async function  obterInformacoesProdutos(filtro){
-    document.querySelector(".produtos").innerText = ''
+    document.querySelector(".produtos").innerHTML = ''
     const dados = await Api.listarMeusProdutos()
 
     dados.forEach((element)=>{
@@ -88,8 +89,33 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
 
         const imagemEditar = document.getElementById('imagemEditar')
         imagemEditar.value = produtoParaEditar.imagem
+
         console.log(produtoParaEditar)
-      
+
+        const buttonEditar = document.getElementById('buttonEditar')
+        buttonEditar.addEventListener('click', async (e)=>{
+            const newObj = {}
+            if(produtoParaEditar.nome !== nomeEditar.value){
+                newObj.nome = nomeEditar.value
+            }
+            if(produtoParaEditar.descricao !== descricaoEditar.value){
+               newObj.descricao = descricaoEditar.value
+            }
+            if(produtoParaEditar.preco !== parseInt(precoEditar.value)){
+                newObj.preco = parseInt(precoEditar.value)
+            }
+            if(produtoParaEditar.imagem !== imagemEditar.value){
+                newObj.imagem = imagemEditar.value
+            }
+
+            await Api.atualizarProduto(newObj, produtoParaEditar.id)
+
+            divDel.classList.remove('modal-on')
+            divDel.classList.add('modal-off')
+            obterInformacoesProdutos("Todos")
+        })
+
+       
     })
 
     
