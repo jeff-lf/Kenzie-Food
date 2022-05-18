@@ -101,11 +101,7 @@ class Api {
             headers: { 'Authorization': `Bearer ${token}` }
         })
 
-        const result = await response.json()
-
-        return result
-
-
+        return response
     }
 
 
@@ -149,10 +145,7 @@ class Api {
 
         })
 
-        const result = await response.json()
-
-        return result
-
+        return response
     }
 
 

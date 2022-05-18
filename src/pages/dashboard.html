@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style/reset.css">
     <link rel="stylesheet" href="/src/style/dashboard.css">
     <title>Dashboard</title>
@@ -65,9 +67,6 @@
 
                 <input type="text" id="Descricao" placeholder=" Digitar a descricao" />
 
-
-                
-                
                 <label for="Categoria">Categorias</label>
                 <div id="buttons">
 
@@ -90,6 +89,47 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL EDITAR PRODUTO -->
+    <div id='modalEditar' class="modal-off">
+        <div id="quadro">
+            <div id="header">
+                <h3>Editar produto</h3>
+                <button id="fecharModalEditar">X</button>
+
+            </div>
+            <div id="dados">
+            
+                <label for="NomeEditar">Nome do Produto</label>
+                <input type="text" id="NomeEditar" placeholder="   Digitar o nome" />
+                
+            
+                <label for="DescricaoEditar">Descrição</label>
+                <input type="text" id="DescricaoEditar" placeholder=" Digitar a descricao" />
+
+                <label for="Categoria">Categorias</label>
+                <div id="buttonsEditar">
+
+                    <button class="Categoria" value="Panificadora">Panificadora</button>
+                    <button class="Categoria" value="Frutas">Frutas</button>
+                    <button class="Categoria" value="Bebidas">Bebidas</button>
+
+                </div>
+
+            
+                <label for="precoEditar">Preço</label>
+                <input type="number" id="precoEditar" placeholder="   Digitar o valor aqui" />
+                
+            
+                <label for="imagemEditar">Link da imagem</label>
+                <input type="url" id="imagemEditar" placeholder="   Inserir link" />
+                
+
+                <button id = "btnEditar">Editar produto</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- CAIXA EXCLUSAO-->
     <div id ="divExcluir" class = "excluir-off">

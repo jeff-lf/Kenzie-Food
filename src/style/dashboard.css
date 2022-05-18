@@ -72,6 +72,7 @@ main{
     width: 120px;
     height: 6vh;
     background-color: var(--cinza);
+    cursor: pointer;
     border-style: none;
     border-radius: 30px;
 }
@@ -112,10 +113,13 @@ main{
 .produtoItem>div{
     display: flex;
     align-items: center;
-
 }
 .divImg{  
     width: 287px;
+    
+}
+.divImg > h2{  
+    margin-left: 7px;
     
 }
 .produtoItem>div>img{
@@ -143,7 +147,12 @@ main{
 .descricao{
     color:var(--cinza2);
     margin-left: 20%;
+    width: 200px;
     
+}
+
+.divBotoes > button{
+    cursor: pointer;
 }
 
 /****************************MODAL ADICIONAR PRODUTO****************************************/
@@ -242,8 +251,25 @@ main{
 .modal-off{
     display: none;
 }
-
 /*********************************MODAL EDITAR PRODUTO***********************************/
+
+#buttonsEditar > .Categoria{
+    Width: 136px;
+    Height: 40px;
+    color: #868E96;
+    cursor: pointer;
+    background: #F8F9FA;
+    border: 1.5px solid #F8F9FA;
+    border-radius: 32px;
+}
+#buttonsEditar>.Categoria:focus{
+    transition: all 0.4s;
+    background-color: var(--rosa);
+    color: var(--branco)
+}
+
+
+/*********************************MODAL EXCLUIR PRODUTO***********************************/
 
 .excluir-on{
     position: fixed;
