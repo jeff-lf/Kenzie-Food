@@ -32,6 +32,11 @@
     margin-right: 231px;
 }
 
+#displayVitrine {
+    display: flex;
+    align-items: center;
+}
+
 #filtrosDaHome {
     display: flex;
     align-content: center;
@@ -47,26 +52,28 @@
     background-color: #F3EEF5;
     margin: 14px;
     cursor: pointer;
+    border: none;
 }
 
 #carrinhoComprasEstatico {
+    display: flex;
     width: 320px;
     height: 56px;
     font-size: 16px;
-    display: flex;
     background-color: #FF2253;
     color: white;
     border-radius: 10px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #carrinhoComprasEstatico img {
-    width: 25px;
-    height: 25px;
+    width: 57px;
+    height: 30px;
     border-radius: 50%;
     cursor: pointer;
-    margin: 10px;
+    margin-left: 20px;
+    margin-right: 53px;
 }
 
 #carrinhoComprasEstatico {}
