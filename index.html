@@ -1,5 +1,7 @@
+<!--  HOME PAGE DE PRODUTOS COM A OPÇÃO DE LOGAR USUÁRIO AO LADO DA BARRA DE PROCURAR-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +9,9 @@
     <link rel="stylesheet" href="./src/style/reset.css">
     <link rel="stylesheet" href="./src/style/home.css">
     <link rel="stylesheet" href="./src/style/style.css">
-    <title>Homepage Kenzie Food</title>
+    <title>Kenzie Food home</title>
 </head>
+
 <body>
     <header id="headerHome">
         <div id="logo">
@@ -20,22 +23,67 @@
             <img src="https://cdn-icons.flaticon.com/png/512/3293/premium/3293466.png?token=exp=1652907164~hmac=5eb8f0f79ae68871b58b649998cd3ec0" alt="login" id="imgLogin">
         </div>
     </header>
-    <section id="displayVitrine">
-        <div id="filtrosDaHome">
+    <div id="filtrosDaHome">
+        <div>
             <button class="layoutButton" id="buttonTodos">Todos</button>
             <button class="layoutButton" id="buttonPao">&#129366 Panificadora</button>
             <button class="layoutButton" id="buttonFrutas">&#127826 Frutas</button>
             <button class="layoutButton" id="buttonBebidas">&#129346 Bebidas</button>
         </div>
+        <div id="carrinhoComprasEstatico">
+            <img src="./src/imagens/shop.png" alt="">
+            <h3>Carrinho</h3>
+        </div>
+    </div>
+    <section id="displayVitrine">
         <div id='templatesCards'></div>
         <!-- AQUI FAZ O APPEND DOS CARDS -->
+
         <aside>
-            <div id="carrinhoComprasEstatico">
-                <img src="./src/imagens/shop.png" alt="">
-                <h3>Carrinho</h3>
-            </div>
+
         </aside>
     </section>
+    <div id='modalLogin' class="modal-on">
+        <div id="quadro">
+            <div id="header">
+                <h3>Login</h3>
+                <button>X</button>
+            </div>
+            <div id="dadosLogin">
+                <label for="inputEmailLogin" id="labelEmail">Email</label>
+                <input type="text" id="inputEmailLogin" placeholder="   Digite o email" />
+
+                <label for="inputSenhaLogin" id="labelSenha">Senha</label>
+                <input type="password" id="inputSenhaLogin" placeholder="   Digite a senha" />
+
+                <button id="buttonLogar">Login</button>
+                <button>Criar Cadastro</button>
+            </div>
+        </div>
+    </div>
+
+    MODAL DE CADASTRO
+    <div id='modalCadastro' class="modal-off">
+        <div id="quadro">
+            <div id="header">
+                <h3>Cadastro</h3>
+                <button>X</button>
+            </div>
+            <div id="dadosCadastro">
+                <label for="inputNomeCadastro" id="labelNomeCadastro">Nome</label>
+                <input type="text" id="inputNomeCadastro" placeholder="   Digite seu nome" />
+
+                <label for="inputEmailCadastro" id="labelEmailCadastro">Email</label>
+                <input type="text" id="inputEmailCadastro" placeholder="   Digite seu email" />
+
+                <label for="inputSenhaCadastro" id="labelSenhaCadastro">Senha</label>
+                <input type="password" id="inputSenhaCadastro" placeholder="   Digite a senha" />
+
+                <button id="criarCadastro">Criar cadastro</button>
+            </div>
+        </div>
+    </div>
     <script type="module" src="./src/javascript/templateCards.js"></script>
 </body>
+
 </html>

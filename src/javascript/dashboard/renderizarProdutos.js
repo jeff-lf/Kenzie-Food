@@ -61,37 +61,6 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
             divDel.classList.add('excluir-off')
         })        
     })
-
-
-    //Editar Produto
-    btnEditar.addEventListener('click',async function(){
-        const divDel = document.getElementById('modalEditar')
-        divDel.classList.remove('modal-off')
-        divDel.classList.add('modal-on')
-        
-        let produtoParaEditar = {}
-        const meuProduto = await Api.listarMeusProdutos()
-        meuProduto.forEach((elem)=>{
-            if(elem.id === idProduto){
-                produtoParaEditar = elem
-                return elem
-            }
-        })
-        const nomeEditar = document.getElementById('NomeEditar')
-        nomeEditar.value = produtoParaEditar.nome
-
-        const descricaoEditar = document.getElementById('DescricaoEditar')
-        descricaoEditar.value = produtoParaEditar.descricao
-
-        const precoEditar = document.getElementById('precoEditar')
-        precoEditar.value = produtoParaEditar.preco
-
-        const imagemEditar = document.getElementById('imagemEditar')
-        imagemEditar.value = produtoParaEditar.imagem
-        console.log(produtoParaEditar)
-      
-    })
-
     
     //setar as classes
     div.classList.add('produtoItem')
@@ -99,8 +68,6 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     divCategoria.classList.add('categoria')
     divImg.classList.add("divImg")
     desc.classList.add('descricao')
-    divBotoes.classList.add('divBotoes')
-
 
     //appends
     divBotoes.append(btnEditar,btnExcluir)
@@ -123,7 +90,6 @@ const btnFruta            = document.getElementById("filtroFruta")
 const btnBebida           = document.getElementById("filtroBebida")
 const btnAdicionarProduto = document.querySelector(".btnAdicionar")
 const btnFecharModel      = document.querySelector("#fecharModal")
-const btnFecharModelEditar= document.querySelector("#fecharModalEditar")
 const btnFecharDeletar    = document.querySelectorAll(".fecharExcluir")
 
 
@@ -150,14 +116,6 @@ btnFecharModel.addEventListener("click",()=>{
     model.classList.remove("modal-on")
     model.classList.add("modal-off")
 })
-
-
-btnFecharModelEditar.addEventListener("click",()=>{
-    let model = document.querySelector("#modalEditar")
-    model.classList.remove("modal-on")
-    model.classList.add("modal-off")
-})
-
 
 btnFecharDeletar.forEach(element=>{
     element.addEventListener("click", ()=>{
