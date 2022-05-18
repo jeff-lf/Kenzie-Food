@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/style/reset.css">
+    <link rel="stylesheet" href="/src/style/dashboard.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <header>
+        <section>
+            <span class = "logoP1">Kenzie</span><span class = "logoP2">Food</span>
+        </section>
+        <section class = "pesquisa">
+            <input type="search" name="" id="" placeholder="&#x1F50E&#xFE0E Pesquisar por produto">
+            <img src="/Frame 1.png" alt="Foto de Perfil">
+        </section>
+    </header>
+    <main>
+        <section class = "botoes">
+            <section class ="filtros">
+                <button id = "filtroTodos">Todos</button>
+                <button id = "filtroPanificadora">&#129366 Panificadora</button>
+                <button id = "filtroFruta">🍇 Frutas</button>
+                <button id = "filtroBebida">&#127863 Bebidas</button>
+            </section>
+            <section>
+                <button class = "btnAdicionar">Adicionar novo produto</button>
+            </section>
+        </section>
+        <section class = "tituloProdutos">
+            <ul>
+                <li>Produto</li>
+                <li>Categoria</li>
+                <li>Descricao</li>
+                <li>Acoes</li>                
+            </ul>
+        </section>
+        
+            <ul class = "produtos">
+
+            </ul>
+        
+    </main>
+   
+      <!-- MODAL CADASTRAR PRODUTO -->
+      <div id = "modal" class="modal-off">
+        <div id="quadro">
+            <div id="header">
+                <h3>Cadastro de produto</h3>
+                <button id = "fecharModal">X</button>
+
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <!-- 
+        
+        Código do dashboard   
+    
+    
+    
+    -->
+    
+
+
+
+
+    <!-- MODAL CADASTRAR PRODUTO -->
+    <div class="modal-on">
+        <div id="quadro">
+            <div id="header">
+                <h3>Cadastro de produto</h3>
+                <button>X</button>
+
+            </div>
+            <div id="dados">
+            
+                <label for="Nome">Nome do Produto</label>
+                <input type="text" id="Nome" placeholder="   Digitar o nome" />
+                
+            
+                <label for="Descricao">Descrição</label>
+
+                <input type="text" id="Descricao" placeholder=" Digitar a descricao" />
+
+                <input type="text" id="Descricao" placeholder="   Digitar a descricao" />
+
+                
+                
+                <label for="Categoria">Categorias</label>
+                <div id="buttons">
+
+                    <button class="Categoria" value="Panificadora">Panificadora</button>
+                    <button class="Categoria" value="Frutas">Frutas</button>
+                    <button class="Categoria" value="Bebidas">Bebidas</button>
+                  
+
+                    <input type="button" class="Categoria" value="Panificadora">
+                    <input type="button" class="Categoria" value="Frutas">
+                    <input type="button" class="Categoria" value="Bebidas">
+
+                </div>
+
+            
+                <label for="preco">Descrição</label>
+                <input type="number" id="preco" placeholder="   Digitar o valor aqui" />
+                
+            
+                <label for="imagem">Link da imagem</label>
+                <input type="url" id="imagem" placeholder="   Inserir link" />
+                
+
+                <button id = "btnCadastrar">Cadastrar produto</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAIXA EXCLUSAO-->
+    <div id ="divExcluir" class = "excluir-off">
+        <div  class = "divExcluir">
+            <div class = "header" >
+                <span>Exclusão de Produto</span>
+                <button class = "fecharExcluir">X</button>
+            </div>
+            <div class = "body">
+                <span>Tem certeza que deseja excluir este produto?</span>
+                <div>
+                    <button id = "btnDeletar">SIM</button>
+                    <button class = "fecharExcluir">NÃO</button>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <script type="module" src="/src/javascript/dashboard/renderizarProdutos.js"></script>
+    <script type="module" src="/src/javascript/dashboard/cadastrarProduto.js"></script>
+</body>
+</html>
+
+                <button>Cadastrar produto</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
