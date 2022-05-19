@@ -8,15 +8,12 @@ const vitrineDaHome = await Api.listarProdutos()
 
 export async function templateCards(dadosDoCard) {
 
-    const template = document.querySelector('#templatesCards')
-    template.innerHTML = ''
-
     const startTemplate = document.querySelector('#templatesCards')
+    startTemplate.innerHTML = ''
     const ul = document.createElement('ul')
     ul.classList.add('startTemplate')
     startTemplate.appendChild(ul)
     ul.innerHTML = ''
-
 
 
     // const dadosDoCard = await Api.listarProdutos()

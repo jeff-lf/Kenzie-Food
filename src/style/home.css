@@ -1,5 +1,4 @@
 #headerHome {
-    /* width: 1600px; */
     height: 72px;
     display: flex;
     justify-content: space-between;
@@ -111,6 +110,7 @@
     margin-right: 53px;
 }
 
+
 #carrinhoDeComprasDinamico {
     display: flex;
     flex-direction: column;
@@ -131,7 +131,6 @@
     border-radius: 9%;
     margin-bottom: 10px;
 }
-
 .layoutButton:hover {
     color: white;
     background-color: #FF2253;
