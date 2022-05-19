@@ -1,23 +1,35 @@
 import {Api} from '/src/controller/Api.js'
 
-export async function  obterInformacoesProdutos(filtro){
+export async function  obterInformacoesProdutos(filtro,tipoFiltro ){
     document.querySelector(".produtos").innerHTML = ''
+
     const dados = await Api.listarMeusProdutos()
 
-    dados.forEach((element)=>{
+   
+     dados.forEach((element)=>{
         const imagemProduto     = element.imagem
         const nomeProduto       = element.nome
         const categoriaProduto  = element.categoria
         const descProduto       = element.descricao.slice(0,35) + '...'
         const idProduto         = element.id
 
-        if(categoriaProduto == filtro){
-            renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+        if(tipoFiltro == "Categoria"){
+            if(categoriaProduto == filtro){
+                renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+            }
+            else if(filtro == "Todos"){
+                renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+            }
         }
-        else if(filtro == "Todos"){
-            renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
-        }               
+        else if(tipoFiltro=="Input"){
+            if(nomeProduto==filtro){
+                renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+            }
+        }
+        
+
     })
+    
 }
 
 async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,descProduto,idProduto){
@@ -44,6 +56,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     btnEditar.innerHTML  = '&#128393'
     btnExcluir.innerHTML = '&#128465'
 
+
     //Deletar Produto
     btnExcluir.addEventListener('click',async function(){
         const divDel = document.getElementById('divExcluir')
@@ -53,7 +66,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
         const btnDeletar  = document.querySelector("#btnDeletar")
         btnDeletar.addEventListener("click",async function(){
             await Api.deletarProduto(idProduto)
-            obterInformacoesProdutos("Todos")
+            obterInformacoesProdutos("Todos","Categoria")
             divDel.classList.remove('excluir-on')
             divDel.classList.add('excluir-off')
         })        
@@ -135,7 +148,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     document.querySelector(".produtos").append(li)
 }
 
-obterInformacoesProdutos("Todos")
+obterInformacoesProdutos("Todos","Categoria")
 
 //coletando os botoes para os filtros
 
@@ -151,16 +164,16 @@ const btnFecharDeletar    = document.querySelectorAll(".fecharExcluir")
 
 btnTodos.focus()
 btnTodos.addEventListener('click', () =>{
-    obterInformacoesProdutos("Todos")
+    obterInformacoesProdutos("Todos","Categoria")
 })
 btnPanificadora.addEventListener('click', ()=>{
-    obterInformacoesProdutos("Panificadora")
+    obterInformacoesProdutos("Panificadora","Categoria")
 })
 btnFruta.addEventListener('click', ()=>{
-    obterInformacoesProdutos("Frutas")
+    obterInformacoesProdutos("Frutas","Categoria")
 })
 btnBebida.addEventListener("click",()=>{
-    obterInformacoesProdutos("Bebidas")
+    obterInformacoesProdutos("Bebidas","Categoria")
 })
 btnAdicionarProduto.addEventListener("click",()=>{
     let model = document.querySelector("#modal")
@@ -187,4 +200,16 @@ btnFecharDeletar.forEach(element=>{
         divDel.classList.remove('excluir-on')
         divDel.classList.add('excluir-off')
     })
+})
+//pesquisar por nome
+window.addEventListener("click", function (event) {
+    const input = event.target
+    if(input.id == "inputPesquisa"){
+        window.addEventListener('keydown',(e) => {
+           if(e.key == "Enter"){
+               obterInformacoesProdutos(input.value,"Input")
+               input.value =''
+           }
+        })
+    }
 })

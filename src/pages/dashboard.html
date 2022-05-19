@@ -17,7 +17,9 @@
             <span class = "logoP1">Kenzie</span><span class = "logoP2">Food</span>
         </section>
         <section class = "pesquisa">
-            <input type="search" name="" id="" placeholder="&#x1F50E&#xFE0E Pesquisar por produto">
+            <div>
+               <span>&#x1F50E&#xFE0E</span><input type="search" name="" id="inputPesquisa" placeholder=" Pesquisar por produto">
+            </div>
             <img src="/Frame 1.png" alt="Foto de Perfil">
         </section>
     </header>
@@ -61,21 +63,17 @@
                 <label for="Nome">Nome do Produto</label>
                 <input type="text" id="Nome" placeholder="   Digitar o nome" />
                 <label for="Descricao">Descrição</label>
-                <input type="text" id="Descricao" placeholder="   Digitar a descricao" />
                 <input type="text" id="Descricao" placeholder=" Digitar a descricao" />
                 <label for="Categoria">Categorias</label>
                 <div id="buttons">
                     <button class="Categoria" value="Panificadora">Panificadora</button>
                     <button class="Categoria" value="Frutas">Frutas</button>
                     <button class="Categoria" value="Bebidas">Bebidas</button>
-                </div>
-
-                <label for="preco">Descrição</label>          
+                </div>        
                 <label for="preco">Preço</label>
                 <input type="number" id="preco" placeholder="   Digitar o valor aqui" />
                 <label for="imagem">Link da imagem</label>
-                <input type="url" id="imagem" placeholder="   Inserir link" />
-                <button>Cadastrar produto</button>        
+                <input type="url" id="imagem" placeholder="   Inserir link" />      
                 <button id = "btnCadastrar">Cadastrar produto</button>
             </div>
         </div>
@@ -137,6 +135,20 @@
             </div>
         </div>  
     </div>
+
+    <!----CAIXA STATUS--->
+    <div id = "divStatus" class = "divStatus-off">
+        <div class ='header'>
+            <span>Status</span>
+            <button>X</button>
+        </div>
+        <div class="body">
+            <span>Produto adicionado com sucesso</span>
+        </div>
+        <div id = "status-sucess">
+        </div>
+    </div>
+
     <script type="module" src="/src/javascript/dashboard/renderizarProdutos.js"></script>
     <script type="module" src="/src/javascript/dashboard/cadastrarProduto.js"></script>
 </body>
