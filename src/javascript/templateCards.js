@@ -1,16 +1,22 @@
 import { Api } from "../controller/Api.js"
 
-async function templateCards() {
+const vitrineDaHome = await Api.listarProdutos()
+
+export async function templateCards(dadosDoCard) {
+
+    const template = document.querySelector('#templatesCards')
+    template.innerHTML = ''
+
     const startTemplate = document.querySelector('#templatesCards')
     const ul = document.createElement('ul')
     ul.classList.add('startTemplate')
     startTemplate.appendChild(ul)
     ul.innerHTML = ''
 
-    const URL = 'https://api-kenzie-food.herokuapp.com/products'
 
-    const dadosDoCard = await Api.listarProdutos()
-    console.log(dadosDoCard)
+
+    // const dadosDoCard = await Api.listarProdutos()
+    // console.log(dadosDoCard)
     dadosDoCard.forEach((elementoAtual) => {
         const li = document.createElement('li')
         li.classList.add('liVitrine')
@@ -48,4 +54,4 @@ async function templateCards() {
 
 }
 
-templateCards()
+templateCards(vitrineDaHome)
