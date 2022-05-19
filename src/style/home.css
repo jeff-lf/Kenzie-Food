@@ -92,6 +92,15 @@
     justify-content: flex-start;
 }
 
+.clickCarrinho {
+    /* width: 57px;
+    height: 30px; */
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
 #carrinhoComprasEstatico img {
     width: 57px;
     height: 30px;
@@ -102,6 +111,26 @@
 }
 
 
+#carrinhoDeComprasDinamico {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 300px;
+    background: #F8F9FA;
+    margin-left: 53px;
+    box-shadow: 0px 0px 40px -18px rgba(0, 0, 0, 0.25);
+}
+
+#carrinhoDeComprasDinamico li {
+    display: flex;
+}
+
+#carrinhoDeComprasDinamico img {
+    width: 70px;
+    height: 70px;
+    border-radius: 9%;
+    margin-bottom: 10px;
+}
 .layoutButton:hover {
     color: white;
     background-color: #FF2253;
