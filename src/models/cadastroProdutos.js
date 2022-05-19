@@ -7,3 +7,4 @@ export class CadastroNovoProduto {
     this.descricao = descricao;
   }
 }
+
