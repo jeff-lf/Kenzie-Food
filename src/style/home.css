@@ -1,5 +1,4 @@
 #headerHome {
-    /* width: 1600px; */
     height: 72px;
     display: flex;
     justify-content: space-between;
@@ -102,7 +101,6 @@
     margin-right: 53px;
 }
 
-#carrinhoComprasEstatico {}
 
 .layoutButton:hover {
     color: white;

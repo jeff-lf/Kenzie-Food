@@ -1,4 +1,3 @@
-git
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,59 +5,140 @@ git
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style/reset.css">
+    <link rel="stylesheet" href="/src/style/dashboard.css">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../style/style.css">
 </head>
-
 <body>
-    <!-- 
+    <header>
+        <section>
+            <span class = "logoP1">Kenzie</span><span class = "logoP2">Food</span>
+        </section>
+        <section class = "pesquisa">
+            <input type="search" name="" id="" placeholder="&#x1F50E&#xFE0E Pesquisar por produto">
+            <img src="/Frame 1.png" alt="Foto de Perfil">
+        </section>
+    </header>
+    <main>
+        <section class = "botoes">
+            <section class ="filtros">
+                <button id = "filtroTodos">Todos</button>
+                <button id = "filtroPanificadora">&#129366 Panificadora</button>
+                <button id = "filtroFruta">🍇 Frutas</button>
+                <button id = "filtroBebida">&#127863 Bebidas</button>
+            </section>
+            <section>
+                <button class = "btnAdicionar">Adicionar novo produto</button>
+            </section>
+        </section>
+        <section class = "tituloProdutos">
+            <ul>
+                <li>Produto</li>
+                <li>Categoria</li>
+                <li>Descricao</li>
+                <li>Acoes</li>                
+            </ul>
+        </section>
         
-        Código do dashboard   
-    
-    
-    
-    -->
+        <ul class = "produtos">
 
-
-
-
-
+            </ul>
+        
+    </main>
+   
     <!-- MODAL CADASTRAR PRODUTO -->
-    <div class="modal-on">
+    <div id='modal' class="modal-off">
         <div id="quadro">
             <div id="header">
                 <h3>Cadastro de produto</h3>
-                <button>X</button>
+                <button id="fecharModal">X</button>
+
             </div>
             <div id="dados">
 
                 <label for="Nome">Nome do Produto</label>
                 <input type="text" id="Nome" placeholder="   Digitar o nome" />
-
-
                 <label for="Descricao">Descrição</label>
                 <input type="text" id="Descricao" placeholder="   Digitar a descricao" />
-
-
+                <input type="text" id="Descricao" placeholder=" Digitar a descricao" />
                 <label for="Categoria">Categorias</label>
                 <div id="buttons">
-                    <input type="button" class="Categoria" value="Panificadora">
-                    <input type="button" class="Categoria" value="Frutas">
-                    <input type="button" class="Categoria" value="Bebidas">
+                    <button class="Categoria" value="Panificadora">Panificadora</button>
+                    <button class="Categoria" value="Frutas">Frutas</button>
+                    <button class="Categoria" value="Bebidas">Bebidas</button>
                 </div>
 
-
-                <label for="preco">Descrição</label>
+                <label for="preco">Descrição</label>          
+                <label for="preco">Preço</label>
                 <input type="number" id="preco" placeholder="   Digitar o valor aqui" />
-
-
                 <label for="imagem">Link da imagem</label>
                 <input type="url" id="imagem" placeholder="   Inserir link" />
-
-                <button>Cadastrar produto</button>
+                <button>Cadastrar produto</button>        
+                <button id = "btnCadastrar">Cadastrar produto</button>
             </div>
         </div>
     </div>
-</body>
 
+    <!-- MODAL EDITAR PRODUTO -->
+    <div id='modalEditar' class="modal-on">
+        <div id="quadro">
+            <div id="header">
+                <h3>Editar produto</h3>
+                <button id="fecharModalEditar">X</button>
+            </div>
+            <div id="dados">
+            
+                <label for="NomeEditar">Nome do Produto</label>
+                <input type="text" id="NomeEditar" placeholder="   Digitar o nome" />
+                
+            
+                <label for="DescricaoEditar">Descrição</label>
+                <input type="text" id="DescricaoEditar" placeholder=" Digitar a descricao" />
+
+                <label for="Categoria">Categorias</label>
+                <div id="buttonsEditar">
+
+                    <button class="Categoria" value="Panificadora">Panificadora</button>
+                    <button class="Categoria" value="Frutas">Frutas</button>
+                    <button class="Categoria" value="Bebidas">Bebidas</button>
+
+                </div>
+
+            
+                <label for="precoEditar">Preço</label>
+                <input type="number" id="precoEditar" placeholder="   Digitar o valor aqui" />
+                
+            
+                <label for="imagemEditar">Link da imagem</label>
+                <input type="url" id="imagemEditar" placeholder="   Inserir link" />
+                
+
+                <button id = "buttonEditar">Editar produto</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CAIXA EXCLUSAO-->
+    <div id ="divExcluir" class = "excluir-off">
+        <div  class = "divExcluir">
+            <div class = "header" >
+                <span>Exclusão de Produto</span>
+                <button class = "fecharExcluir">X</button>
+            </div>
+            <div class = "body">
+                <span>Tem certeza que deseja excluir este produto?</span>
+                <div>
+                    <button id = "btnDeletar">SIM</button>
+                    <button class = "fecharExcluir">NÃO</button>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <script type="module" src="/src/javascript/dashboard/renderizarProdutos.js"></script>
+    <script type="module" src="/src/javascript/dashboard/cadastrarProduto.js"></script>
+</body>
 </html>

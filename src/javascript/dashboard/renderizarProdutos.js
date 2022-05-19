@@ -1,7 +1,7 @@
 import {Api} from '/src/controller/Api.js'
 
 export async function  obterInformacoesProdutos(filtro){
-    document.querySelector(".produtos").innerText = ''
+    document.querySelector(".produtos").innerHTML = ''
     const dados = await Api.listarMeusProdutos()
 
     dados.forEach((element)=>{
@@ -16,10 +16,7 @@ export async function  obterInformacoesProdutos(filtro){
         }
         else if(filtro == "Todos"){
             renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
-        }
-        
-
-        
+        }               
     })
 }
 
@@ -61,6 +58,62 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
             divDel.classList.add('excluir-off')
         })        
     })
+
+
+    //Editar Produto
+    btnEditar.addEventListener('click',async function(){
+        const divDel = document.getElementById('modalEditar')
+        divDel.classList.remove('modal-off')
+        divDel.classList.add('modal-on')
+        
+        let produtoParaEditar = {}
+        const meuProduto = await Api.listarMeusProdutos()
+        meuProduto.forEach((elem)=>{
+            if(elem.id === idProduto){
+                produtoParaEditar = elem
+                return elem
+            }
+        })
+        const nomeEditar = document.getElementById('NomeEditar')
+        nomeEditar.value = produtoParaEditar.nome
+
+        const descricaoEditar = document.getElementById('DescricaoEditar')
+        descricaoEditar.value = produtoParaEditar.descricao
+
+        const precoEditar = document.getElementById('precoEditar')
+        precoEditar.value = produtoParaEditar.preco
+
+        const imagemEditar = document.getElementById('imagemEditar')
+        imagemEditar.value = produtoParaEditar.imagem
+
+        console.log(produtoParaEditar)
+
+        const buttonEditar = document.getElementById('buttonEditar')
+        buttonEditar.addEventListener('click', async (e)=>{
+            const newObj = {}
+            if(produtoParaEditar.nome !== nomeEditar.value){
+                newObj.nome = nomeEditar.value
+            }
+            if(produtoParaEditar.descricao !== descricaoEditar.value){
+               newObj.descricao = descricaoEditar.value
+            }
+            if(produtoParaEditar.preco !== parseInt(precoEditar.value)){
+                newObj.preco = parseInt(precoEditar.value)
+            }
+            if(produtoParaEditar.imagem !== imagemEditar.value){
+                newObj.imagem = imagemEditar.value
+            }
+
+            await Api.atualizarProduto(newObj, produtoParaEditar.id)
+
+            divDel.classList.remove('modal-on')
+            divDel.classList.add('modal-off')
+            obterInformacoesProdutos("Todos")
+        })
+
+       
+    })
+
     
     //setar as classes
     div.classList.add('produtoItem')
@@ -68,6 +121,8 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     divCategoria.classList.add('categoria')
     divImg.classList.add("divImg")
     desc.classList.add('descricao')
+    divBotoes.classList.add('divBotoes')
+
 
     //appends
     divBotoes.append(btnEditar,btnExcluir)
@@ -90,6 +145,7 @@ const btnFruta            = document.getElementById("filtroFruta")
 const btnBebida           = document.getElementById("filtroBebida")
 const btnAdicionarProduto = document.querySelector(".btnAdicionar")
 const btnFecharModel      = document.querySelector("#fecharModal")
+const btnFecharModelEditar= document.querySelector("#fecharModalEditar")
 const btnFecharDeletar    = document.querySelectorAll(".fecharExcluir")
 
 
@@ -116,6 +172,14 @@ btnFecharModel.addEventListener("click",()=>{
     model.classList.remove("modal-on")
     model.classList.add("modal-off")
 })
+
+
+btnFecharModelEditar.addEventListener("click",()=>{
+    let model = document.querySelector("#modalEditar")
+    model.classList.remove("modal-on")
+    model.classList.add("modal-off")
+})
+
 
 btnFecharDeletar.forEach(element=>{
     element.addEventListener("click", ()=>{
