@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./src/style/reset.css">
     <link rel="stylesheet" href="./src/style/home.css">
     <link rel="stylesheet" href="./src/style/style.css">
-    <title>Homepage Kenzie Food</title>
+    <title>Kenzie Food home</title>
 </head>
 <body>
     <header id="headerHome">
@@ -17,7 +17,7 @@
         </div>
         <div id="headerFinal">
             <input type="text" placeholder="O que voce quer hoje?" id="pesquisaHome">
-            <img id='login' src="https://cdn-icons.flaticon.com/png/512/3293/premium/3293466.png?token=exp=1652907164~hmac=5eb8f0f79ae68871b58b649998cd3ec0" alt="login" id="imgLogin">
+            <img src="./src/imagens/avatarLogin.png" alt="login" id="imgLogin">
         </div>
     </header>
     <div id="filtrosDaHome">
@@ -41,43 +41,53 @@
         </aside>
     </section>
 
+
      <!--- MODAL DE LOGIN  -->
     <div id='modalLogin' class="modal-off">
         <div id="quadro">
             <div id="header">
                 <h3>Login</h3>
+                <button>X</button>
+            </div>
+            <div id="dadosLogin">
+                <label for="inputEmailLogin" id="labelEmail">Email</label>
                 <button id="fecharLogin">X</button>
             </div>
             <div id="dadosLogin">
                  <label for="inputEmailLogin" id="labelEmail">Email</label>
+              
                 <input type="text" id="inputEmailLogin" placeholder="   Digite o email" />
 
                 <label for="inputSenhaLogin" id="labelSenha">Senha</label>
                 <input type="password" id="inputSenhaLogin" placeholder="   Digite a senha" />
+
             
                 <button id="buttonLogar">Login</button>
                 <p id="textoLogin">Ainda não possui cadastro? <a id="linkLogin" href="#">Clique aqui</a></p>
+
             </div>
         </div>
     </div>
+
 
     <!--- MODAL DE CADASTRO ---> 
     <div id='modalCadastro' class="modal-off">
         <div id="quadro">
             <div id="header">
                 <h3>Cadastro</h3>
+
                 <button id="fecharCadastro">X</button>
             </div>
             <div id="dadosCadastro">
                 <label for="inputNomeCadastro" id="labelNomeCadastro">Nome</label>
                 <input type="text" id="inputNomeCadastro" placeholder="   Digite seu nome" />
-            
+
                 <label for="inputEmailCadastro" id="labelEmailCadastro">Email</label>
                 <input type="text" id="inputEmailCadastro" placeholder="   Digite seu email" />
 
                 <label for="inputSenhaCadastro" id="labelSenhaCadastro">Senha</label>
                 <input type="password" id="inputSenhaCadastro" placeholder="   Digite a senha" />
-            
+
                 <button id="criarCadastro">Criar cadastro</button>
             </div>
         </div>
