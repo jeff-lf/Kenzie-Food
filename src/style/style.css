@@ -159,6 +159,7 @@
     cursor: pointer;
 }
 
+
 #dados > label{
     width: 440px;
     text-align: start;
@@ -205,6 +206,12 @@
     margin-top: 20px;
 }
 
+#textoLogin{
+    margin-top: 10px;
+}
+#msgErro{
+    color: red;
+}
 #labelSenha, #labelEmail{
     margin-top: 30px;
 }
@@ -244,6 +251,11 @@
 #dadosCadastro > label{
     width: 440px;
     text-align: start;
+}
+
+#msgErroCadastro{
+    color: red;
+    margin-bottom: 5px;
 }
 
 #labelSenhaCadastro, #labelEmailCadastro, #labelNomeCadastro, #criarCadastro{
