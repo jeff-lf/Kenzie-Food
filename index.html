@@ -17,7 +17,7 @@
         </div>
         <div id="headerFinal">
             <input type="text" placeholder="O que voce quer hoje?" id="pesquisaHome">
-            <img src="https://cdn-icons.flaticon.com/png/512/3293/premium/3293466.png?token=exp=1652907164~hmac=5eb8f0f79ae68871b58b649998cd3ec0" alt="login" id="imgLogin">
+            <img id='login' src="https://cdn-icons.flaticon.com/png/512/3293/premium/3293466.png?token=exp=1652907164~hmac=5eb8f0f79ae68871b58b649998cd3ec0" alt="login" id="imgLogin">
         </div>
     </header>
     <div id="filtrosDaHome">
@@ -46,7 +46,7 @@
         <div id="quadro">
             <div id="header">
                 <h3>Login</h3>
-                <button>X</button>
+                <button id="fecharLogin">X</button>
             </div>
             <div id="dadosLogin">
                  <label for="inputEmailLogin" id="labelEmail">Email</label>
@@ -56,7 +56,7 @@
                 <input type="password" id="inputSenhaLogin" placeholder="   Digite a senha" />
             
                 <button id="buttonLogar">Login</button>
-                <button>Criar Cadastro</button>
+                <p id="textoLogin">Ainda não possui cadastro? <a id="linkLogin" href="#">Clique aqui</a></p>
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@
         <div id="quadro">
             <div id="header">
                 <h3>Cadastro</h3>
-                <button>X</button>
+                <button id="fecharCadastro">X</button>
             </div>
             <div id="dadosCadastro">
                 <label for="inputNomeCadastro" id="labelNomeCadastro">Nome</label>
