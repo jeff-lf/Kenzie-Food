@@ -139,7 +139,4 @@ export class Api {
         return result
 
     }
-
-
-
 }
