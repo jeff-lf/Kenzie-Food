@@ -188,3 +188,46 @@ btnFecharDeletar.forEach(element=>{
         divDel.classList.add('excluir-off')
     })
 })
+
+
+const buttonLogin = document.getElementById('imgLogin')
+buttonLogin.addEventListener('click', (e)=>{
+    if(localStorage.Token !== undefined){
+        menu.innerHTML = ''
+        menu.classList.toggle('menuOff')
+        const liHome = document.createElement('li')
+        liHome.innerText = 'Home'
+        liHome.id = 'home'
+        const liDash = document.createElement('li')
+        liDash.innerText = 'Dashboard'
+        liDash.id = 'dash'
+        const liLogout = document.createElement('li')
+        liLogout.innerText = 'Logout'
+        liLogout.id = 'logout'
+
+        menu.appendChild(liHome)
+        menu.appendChild(liDash)
+        menu.appendChild(liLogout)
+
+        const buttonLogout = document.getElementById('logout')
+        buttonLogout.addEventListener('click', (e)=> {
+            localStorage.removeItem('Token')
+            menu.classList.toggle('menuOff')
+            window.location.href = '../../index.html'
+        })
+
+        const buttonHome = document.getElementById('home')
+        buttonHome.addEventListener('click', (e) => {
+            window.location.href = '../../index.html'
+        })
+
+        const buttonDashboard = document.getElementById('dash')
+        buttonDashboard.addEventListener('click', (e)=>{
+            window.location = '../pages/dashboard.html'
+        })
+
+    }else{
+    modalLogin.classList.remove('modal-off')
+    modalLogin.classList.add('modal-on')
+    }
+})

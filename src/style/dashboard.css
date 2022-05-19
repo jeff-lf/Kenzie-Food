@@ -146,6 +146,37 @@ main{
     
 }
 
+#menu{
+    position: absolute;
+    right: 25px;
+    top: 60px;
+    width: 80px;
+    height: 90px;
+    background-color: transparent;
+}
+
+#menu > li {
+    width: 78px;
+    height: 25px;
+    align-items: center;
+    border: 1px solid #03a0cc;
+    border-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
+    font-weight:700;
+    color: #FFFFFF;
+    background-color: #75d8f4;
+}
+
+#menu > li:hover{
+    cursor: pointer;
+    border: 1.5px solid #136497;
+}
+.menuOff{
+    display: none;
+}
+
 /****************************MODAL ADICIONAR PRODUTO****************************************/
 .modal-on{
     position: fixed;
