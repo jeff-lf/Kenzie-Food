@@ -6,6 +6,7 @@ const modalCadastro = document.getElementById('modalCadastro')
 const modalLogin = document.getElementById('modalLogin')
 const dadosLogin = document.getElementById('dadosLogin')
 const dadosCadastro = document.getElementById('dadosCadastro')
+const menu = document.getElementById('menu')
 
 // Adicionando msg de erro no login
 const p = document.createElement('p')
@@ -65,12 +66,48 @@ async function coletarDadosLogin(e){
 const buttonLogar = document.getElementById('buttonLogar')
 buttonLogar.addEventListener('click', coletarDadosLogin)
 
+
+
 const buttonLogin = document.getElementById('imgLogin')
 buttonLogin.addEventListener('click', (e)=>{
+    if(localStorage.Token !== undefined){
+        menu.innerHTML = ''
+        menu.classList.toggle('menuOff')
+        const liHome = document.createElement('li')
+        liHome.innerText = 'Home'
+        liHome.id = 'home'
+        const liDash = document.createElement('li')
+        liDash.innerText = 'Dashboard'
+        liDash.id = 'dash'
+        const liLogout = document.createElement('li')
+        liLogout.innerText = 'Logout'
+        liLogout.id = 'logout'
+
+        menu.appendChild(liHome)
+        menu.appendChild(liDash)
+        menu.appendChild(liLogout)
+
+        const buttonLogout = document.getElementById('logout')
+        buttonLogout.addEventListener('click', (e)=> {
+            localStorage.removeItem('Token')
+            menu.classList.toggle('menuOff')
+        })
+
+        const buttonHome = document.getElementById('home')
+        buttonHome.addEventListener('click', (e) => {
+            window.location.href = 'index.html'
+        })
+
+        const buttonDashboard = document.getElementById('dash')
+        buttonDashboard.addEventListener('click', (e)=>{
+            window.location = 'src/pages/dashboard.html'
+        })
+
+    }else{
     modalLogin.classList.remove('modal-off')
     modalLogin.classList.add('modal-on')
+    }
 })
-
 
 const linkLogin = document.getElementById('linkLogin')
 linkLogin.addEventListener('click', (e)=> {
