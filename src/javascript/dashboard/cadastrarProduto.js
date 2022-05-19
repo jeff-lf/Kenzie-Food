@@ -1,7 +1,7 @@
 import {Api} from '/src/controller/Api.js'
 import {obterInformacoesProdutos} from './renderizarProdutos.js'
 
-localStorage.setItem('Token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4N2UyZjRhLTRiN2ItNDdlZi05ZjBlLTlmNTllZDI5YzMxYyIsImlhdCI6MTY1MjgxOTgzNCwiZXhwIjoxNjUzNjgzODM0LCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.X8L-U8dzTMrftrdZHt7gyg54dREulC7yB0YSwLrQoks')
+localStorage.setItem('Token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFiNjA0MWMxLTRmMmMtNDg5Ni1hNThiLTMyNzI0OGViOWRiZSIsImlhdCI6MTY1Mjk2NTE0NSwiZXhwIjoxNjUzODI5MTQ1LCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.kkMWmWrjf_aoPb7x0taZlDGQ_afD80jtD_M28hNljYU')
 
 let categoriaDefinida = ""
 
@@ -22,12 +22,36 @@ async function cadastarNovoProduto(){
 
     const resposta = await Api.criarProduto(dadosProduto)
 
+
     let model = document.querySelector("#modal")
     model.classList.remove("modal-on")
     model.classList.add("modal-off")
 
-    obterInformacoesProdutos("Todos")
+    if(resposta.msg==null){
+        
+        let status = document.querySelector("#divStatus")
+        status.classList.remove("divStatus-off")
+        status.classList.add("divStatus-on")
 
+        setInterval(() => {
+            status.classList.remove("divStatus-on")
+            status.classList.add("divStatus-off")
+        }, 10000);
+    }
+    else{
+        let status = document.querySelector("#divStatus")
+        status.classList.remove("divStatus-off")
+        status.classList.add("divStatus-on")
+
+        let statusColor = document.querySelector("#status-sucess")
+        statusColor.style.backgroundColor = "#FF2253"
+
+    }
+
+
+    obterInformacoesProdutos("Todos","Categoria")
+
+    //Limpar formulario
     const form = document.getElementById('dados').children
     for(let i = 0; i < form.length; i++){
         form[i].value = ''
