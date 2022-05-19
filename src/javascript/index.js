@@ -65,7 +65,7 @@ async function coletarDadosLogin(e){
 const buttonLogar = document.getElementById('buttonLogar')
 buttonLogar.addEventListener('click', coletarDadosLogin)
 
-const buttonLogin = document.getElementById('login')
+const buttonLogin = document.getElementById('imgLogin')
 buttonLogin.addEventListener('click', (e)=>{
     modalLogin.classList.remove('modal-off')
     modalLogin.classList.add('modal-on')
