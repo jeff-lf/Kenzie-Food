@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,46 +12,47 @@
     <link rel="stylesheet" href="/src/style/dashboard.css">
     <title>Dashboard</title>
 </head>
+
 <body>
     <header>
-        <section>
-            <span class = "logoP1">Kenzie</span><span class = "logoP2">Food</span>
+        <section id="logoMarca">
+            <span class="logoP1">Kenzie</span><span class="logoP2">Food</span>
         </section>
-        <section class = "pesquisa">
+        <section class="pesquisa">
             <div>
-               <span>&#x1F50E&#xFE0E</span><input type="search" name="" id="inputPesquisa" placeholder=" Pesquisar por produto">
+                <span></span><input type="search" name="" id="inputPesquisa" placeholder=" Pesquisar por produto">
             </div>
-            <img id='imgLogin' src="/Frame 1.png" alt="Foto de Perfil">
+            <img id='imgLogin' src="../imagens/avatarLogin.png" alt="Foto de Perfil">
             <ul class='menuOff' id="menu"></ul>
         </section>
     </header>
     <main>
-        <section class = "botoes">
-            <section class ="filtros">
-                <button id = "filtroTodos">Todos</button>
-                <button id = "filtroPanificadora">&#129366 Panificadora</button>
-                <button id = "filtroFruta">🍇 Frutas</button>
-                <button id = "filtroBebida">&#127863 Bebidas</button>
+        <section class="botoes">
+            <section class="filtros">
+                <button id="filtroTodos">Todos</button>
+                <button id="filtroPanificadora">&#129366 Panificadora</button>
+                <button id="filtroFruta">&#127826 Frutas</button>
+                <button id="filtroBebida">&#129346 Bebidas</button>
             </section>
             <section>
-                <button class = "btnAdicionar">Adicionar novo produto</button>
+                <button class="btnAdicionar">Adicionar novo produto</button>
             </section>
         </section>
-        <section class = "tituloProdutos">
+        <section class="tituloProdutos">
             <ul>
                 <li>Produto</li>
                 <li>Categoria</li>
                 <li>Descricao</li>
-                <li>Acoes</li>                
+                <li>Acoes</li>
             </ul>
         </section>
-        
-        <ul class = "produtos">
 
-            </ul>
-        
+        <ul class="produtos">
+
+        </ul>
+
     </main>
-   
+
     <!-- MODAL CADASTRAR PRODUTO -->
     <div id='modal' class="modal-off">
         <div id="quadro">
@@ -70,12 +72,12 @@
                     <button class="Categoria" value="Panificadora">Panificadora</button>
                     <button class="Categoria" value="Frutas">Frutas</button>
                     <button class="Categoria" value="Bebidas">Bebidas</button>
-                </div>        
+                </div>
                 <label for="preco">Preço</label>
                 <input type="number" id="preco" placeholder="   Digitar o valor aqui" />
                 <label for="imagem">Link da imagem</label>
-                <input type="url" id="imagem" placeholder="   Inserir link" />      
-                <button id = "btnCadastrar">Cadastrar produto</button>
+                <input type="url" id="imagem" placeholder="   Inserir link" />
+                <button id="btnCadastrar">Cadastrar produto</button>
             </div>
         </div>
     </div>
@@ -88,11 +90,11 @@
                 <button id="fecharModalEditar">X</button>
             </div>
             <div id="dados">
-            
+
                 <label for="NomeEditar">Nome do Produto</label>
                 <input type="text" id="NomeEditar" placeholder="   Digitar o nome" />
-                
-            
+
+
                 <label for="DescricaoEditar">Descrição</label>
                 <input type="text" id="DescricaoEditar" placeholder=" Digitar a descricao" />
 
@@ -105,53 +107,53 @@
 
                 </div>
 
-            
+
                 <label for="precoEditar">Preço</label>
                 <input type="number" id="precoEditar" placeholder="   Digitar o valor aqui" />
-                
-            
+
+
                 <label for="imagemEditar">Link da imagem</label>
                 <input type="url" id="imagemEditar" placeholder="   Inserir link" />
-                
 
-                <button id = "buttonEditar">Editar produto</button>
+
+                <button id="buttonEditar">Editar produto</button>
             </div>
         </div>
     </div>
 
 
     <!-- CAIXA EXCLUSAO-->
-    <div id ="divExcluir" class = "excluir-off">
-        <div  class = "divExcluir">
-            <div class = "header" >
+    <div id="divExcluir" class="excluir-off">
+        <div class="divExcluir">
+            <div class="header">
                 <span>Exclusão de Produto</span>
-                <button class = "fecharExcluir">X</button>
+                <button class="fecharExcluir">X</button>
             </div>
-            <div class = "body">
+            <div class="body">
                 <span>Tem certeza que deseja excluir este produto?</span>
                 <div>
-                    <button id = "btnDeletar">SIM</button>
-                    <button class = "fecharExcluir">NÃO</button>
+                    <button id="btnDeletar">SIM</button>
+                    <button class="fecharExcluir">NÃO</button>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 
     <!----CAIXA STATUS--->
-    <div id = "divStatus" class = "divStatus-off">
-        <div class ='header'>
+    <div id="divStatus" class="divStatus-off">
+        <div class='header'>
             <span>Status</span>
             <button>X</button>
         </div>
         <div class="body">
             <span>Produto adicionado com sucesso</span>
         </div>
-        <div id = "status-sucess">
+        <div id="status-sucess">
         </div>
     </div>
 
     <script type="module" src="/src/javascript/dashboard/renderizarProdutos.js"></script>
     <script type="module" src="/src/javascript/dashboard/cadastrarProduto.js"></script>
 </body>
-</html>
 
+</html>
