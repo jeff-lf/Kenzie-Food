@@ -88,10 +88,11 @@ async function templateCarrinhoCompras(array) {
     const buttonDeletardoCarrinho = document.createElement("button");
     buttonDeletardoCarrinho.innerText = "Deletar";
     buttonDeletardoCarrinho.id = produto.id;
+
     imgDoItem.src = produto.imagem;
     nome.innerText = produto.nome;
     categoria.innerText = produto.categoria;
-    valor.innerText = produto.categoria;
+    valor.innerText = `R$${produto.preco}`;
 
     li.appendChild(imgDoItem);
     li.appendChild(containerCarrinho);
