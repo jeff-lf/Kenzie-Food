@@ -1,12 +1,11 @@
 import {Api} from '/src/controller/Api.js'
 
-export async function  obterInformacoesProdutos(filtro,tipoFiltro ){
+const dados = await Api.listarMeusProdutos()
+export async function  obterInformacoesProdutos(arr, filtro,tipoFiltro ){
     document.querySelector(".produtos").innerHTML = ''
 
-    const dados = await Api.listarMeusProdutos()
 
-   
-     dados.forEach((element)=>{
+     arr.forEach((element)=>{
         const imagemProduto     = element.imagem
         const nomeProduto       = element.nome
         const categoriaProduto  = element.categoria
@@ -69,7 +68,8 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
             obterInformacoesProdutos("Todos","Categoria")
             divDel.classList.remove('excluir-on')
             divDel.classList.add('excluir-off')
-        })        
+            window.location = '../pages/dashboard.html'
+        })   
     })
 
 
@@ -121,7 +121,8 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
 
             divDel.classList.remove('modal-on')
             divDel.classList.add('modal-off')
-            obterInformacoesProdutos("Todos")
+            obterInformacoesProdutos(dados, "Todos","Categoria")
+            window.location = '../pages/dashboard.html'
         })
 
        
@@ -148,7 +149,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     document.querySelector(".produtos").append(li)
 }
 
-obterInformacoesProdutos("Todos","Categoria")
+obterInformacoesProdutos(dados, "Todos","Categoria")
 
 //coletando os botoes para os filtros
 
@@ -164,16 +165,16 @@ const btnFecharDeletar    = document.querySelectorAll(".fecharExcluir")
 
 btnTodos.focus()
 btnTodos.addEventListener('click', () =>{
-    obterInformacoesProdutos("Todos","Categoria")
+    obterInformacoesProdutos(dados,"Todos","Categoria")
 })
 btnPanificadora.addEventListener('click', ()=>{
-    obterInformacoesProdutos("Panificadora","Categoria")
+    obterInformacoesProdutos(dados,"Panificadora","Categoria")
 })
 btnFruta.addEventListener('click', ()=>{
-    obterInformacoesProdutos("Frutas","Categoria")
+    obterInformacoesProdutos(dados,"Frutas","Categoria")
 })
 btnBebida.addEventListener("click",()=>{
-    obterInformacoesProdutos("Bebidas","Categoria")
+    obterInformacoesProdutos(dados,"Bebidas","Categoria")
 })
 btnAdicionarProduto.addEventListener("click",()=>{
     let model = document.querySelector("#modal")
@@ -202,17 +203,52 @@ btnFecharDeletar.forEach(element=>{
     })
 })
 //pesquisar por nome
-window.addEventListener("click", function (event) {
-    const input = event.target
-    if(input.id == "inputPesquisa"){
-        window.addEventListener('keydown',(e) => {
-           if(e.key == "Enter"){
-               obterInformacoesProdutos(input.value,"Input")
-               input.value =''
-           }
-        })
+const produtos = await Api.listarMeusProdutos()
+
+
+const inputPesquisa = document.getElementById('inputPesquisa')
+inputPesquisa.addEventListener('keypress', pesquisaProdutos)
+inputPesquisa.addEventListener('keydown', (event) => {
+    if(event.key === 'Backspace'){
+    
+    let produtosPesquisados = []
+    let textInput0 = (inputPesquisa.value)
+    let textInput = textInput0.substring(0, textInput0.length - 1)
+
+    if(textInput === ''){
+        obterInformacoesProdutos(produtos,"Todos","Categoria")
+    }else{
+    produtos.forEach((elem) =>{
+        let textProduto = ''
+        for(let i = 0; i < textInput.length; i ++){
+                textProduto += elem.nome[i]
+        }
+        if(textProduto.toLocaleLowerCase() === textInput.toLocaleLowerCase()){
+            produtosPesquisados.push(elem)
+        }
+    })
+    obterInformacoesProdutos(produtosPesquisados,"Todos","Categoria")
+    }
     }
 })
+
+function pesquisaProdutos(e){
+let produtosPesquisados = []
+let textInput = (inputPesquisa.value + String.fromCharCode(e.keyCode))
+    produtos.forEach((elem) =>{
+        let textProduto = ''
+        for(let i = 0; i < textInput.length; i ++){
+                textProduto += elem.nome[i]
+        }
+        if(textProduto.toLocaleLowerCase() === textInput.toLocaleLowerCase()){
+            produtosPesquisados.push(elem)
+        }
+    })
+    obterInformacoesProdutos(produtosPesquisados,"Todos","Categoria")
+}
+
+
+//Login
 
 const buttonLogin = document.getElementById('imgLogin')
 buttonLogin.addEventListener('click', (e)=>{

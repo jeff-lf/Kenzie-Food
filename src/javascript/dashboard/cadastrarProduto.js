@@ -14,12 +14,12 @@ async function cadastarNovoProduto(){
 
     const dadosProduto = {
         "nome":nome,
-        "preco":preco,
+        "preco":parseInt(preco),
         "categoria":categoria,
         "imagem":img,
         "descricao":desc
     }
-
+    console.log(dadosProduto)
     const resposta = await Api.criarProduto(dadosProduto)
 
 
@@ -48,15 +48,15 @@ async function cadastarNovoProduto(){
 
     }
 
-
-    obterInformacoesProdutos("Todos","Categoria")
+    const dados = await Api.listarMeusProdutos()
+    obterInformacoesProdutos(dados,"Todos","Categoria")
 
     //Limpar formulario
     const form = document.getElementById('dados').children
     for(let i = 0; i < form.length; i++){
         form[i].value = ''
     }
- 
+    window.location = '../pages/dashboard.html'
 }
 function definirCategoria(txt){
     categoriaDefinida = txt
