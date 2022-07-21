@@ -202,6 +202,10 @@ btnFecharDeletar.forEach(element=>{
         divDel.classList.add('excluir-off')
     })
 })
+
+
+
+
 //pesquisar por nome
 const produtos = await Api.listarMeusProdutos()
 
@@ -249,6 +253,7 @@ let textInput = (inputPesquisa.value + String.fromCharCode(e.keyCode))
 
 
 //Login
+
 
 const buttonLogin = document.getElementById('imgLogin')
 buttonLogin.addEventListener('click', (e)=>{

@@ -197,6 +197,8 @@ main {
     background-color: transparent;
 }
 
+
+
 #menu>li {
     width: 78px;
     height: 25px;
@@ -206,17 +208,16 @@ main {
     margin-top: 2px;
     margin-bottom: 2px;
     text-align: center;
-    font-weight: 700;
+    font-weight:700;
     color: #FFFFFF;
     background-color: #75d8f4;
 }
 
-#menu>li:hover {
+#menu > li:hover{
     cursor: pointer;
     border: 1.5px solid #136497;
 }
-
-.menuOff {
+.menuOff{
     display: none;
 }
 
