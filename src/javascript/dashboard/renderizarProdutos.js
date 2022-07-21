@@ -1,23 +1,34 @@
 import {Api} from '/src/controller/Api.js'
 
-export async function  obterInformacoesProdutos(filtro){
+const dados = await Api.listarMeusProdutos()
+export async function  obterInformacoesProdutos(arr, filtro,tipoFiltro ){
     document.querySelector(".produtos").innerHTML = ''
-    const dados = await Api.listarMeusProdutos()
 
-    dados.forEach((element)=>{
+
+     arr.forEach((element)=>{
         const imagemProduto     = element.imagem
         const nomeProduto       = element.nome
         const categoriaProduto  = element.categoria
         const descProduto       = element.descricao.slice(0,35) + '...'
         const idProduto         = element.id
 
-        if(categoriaProduto == filtro){
-            renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+        if(tipoFiltro == "Categoria"){
+            if(categoriaProduto == filtro){
+                renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+            }
+            else if(filtro == "Todos"){
+                renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+            }
         }
-        else if(filtro == "Todos"){
-            renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
-        }               
+        else if(tipoFiltro=="Input"){
+            if(nomeProduto==filtro){
+                renderizarProdutos(imagemProduto,nomeProduto,categoriaProduto,descProduto,idProduto)
+            }
+        }
+        
+
     })
+    
 }
 
 async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,descProduto,idProduto){
@@ -44,6 +55,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     btnEditar.innerHTML  = '&#128393'
     btnExcluir.innerHTML = '&#128465'
 
+
     //Deletar Produto
     btnExcluir.addEventListener('click',async function(){
         const divDel = document.getElementById('divExcluir')
@@ -53,10 +65,11 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
         const btnDeletar  = document.querySelector("#btnDeletar")
         btnDeletar.addEventListener("click",async function(){
             await Api.deletarProduto(idProduto)
-            obterInformacoesProdutos("Todos")
+            obterInformacoesProdutos("Todos","Categoria")
             divDel.classList.remove('excluir-on')
             divDel.classList.add('excluir-off')
-        })        
+            window.location = '../pages/dashboard.html'
+        })   
     })
 
 
@@ -108,7 +121,8 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
 
             divDel.classList.remove('modal-on')
             divDel.classList.add('modal-off')
-            obterInformacoesProdutos("Todos")
+            obterInformacoesProdutos(dados, "Todos","Categoria")
+            window.location = '../pages/dashboard.html'
         })
 
        
@@ -135,7 +149,7 @@ async function renderizarProdutos(imagemProduto, nomeProduto, categoriaProduto,d
     document.querySelector(".produtos").append(li)
 }
 
-obterInformacoesProdutos("Todos")
+obterInformacoesProdutos(dados, "Todos","Categoria")
 
 //coletando os botoes para os filtros
 
@@ -151,16 +165,16 @@ const btnFecharDeletar    = document.querySelectorAll(".fecharExcluir")
 
 btnTodos.focus()
 btnTodos.addEventListener('click', () =>{
-    obterInformacoesProdutos("Todos")
+    obterInformacoesProdutos(dados,"Todos","Categoria")
 })
 btnPanificadora.addEventListener('click', ()=>{
-    obterInformacoesProdutos("Panificadora")
+    obterInformacoesProdutos(dados,"Panificadora","Categoria")
 })
 btnFruta.addEventListener('click', ()=>{
-    obterInformacoesProdutos("Frutas")
+    obterInformacoesProdutos(dados,"Frutas","Categoria")
 })
 btnBebida.addEventListener("click",()=>{
-    obterInformacoesProdutos("Bebidas")
+    obterInformacoesProdutos(dados,"Bebidas","Categoria")
 })
 btnAdicionarProduto.addEventListener("click",()=>{
     let model = document.querySelector("#modal")
@@ -188,6 +202,57 @@ btnFecharDeletar.forEach(element=>{
         divDel.classList.add('excluir-off')
     })
 })
+
+
+
+
+//pesquisar por nome
+const produtos = await Api.listarMeusProdutos()
+
+
+const inputPesquisa = document.getElementById('inputPesquisa')
+inputPesquisa.addEventListener('keypress', pesquisaProdutos)
+inputPesquisa.addEventListener('keydown', (event) => {
+    if(event.key === 'Backspace'){
+    
+    let produtosPesquisados = []
+    let textInput0 = (inputPesquisa.value)
+    let textInput = textInput0.substring(0, textInput0.length - 1)
+
+    if(textInput === ''){
+        obterInformacoesProdutos(produtos,"Todos","Categoria")
+    }else{
+    produtos.forEach((elem) =>{
+        let textProduto = ''
+        for(let i = 0; i < textInput.length; i ++){
+                textProduto += elem.nome[i]
+        }
+        if(textProduto.toLocaleLowerCase() === textInput.toLocaleLowerCase()){
+            produtosPesquisados.push(elem)
+        }
+    })
+    obterInformacoesProdutos(produtosPesquisados,"Todos","Categoria")
+    }
+    }
+})
+
+function pesquisaProdutos(e){
+let produtosPesquisados = []
+let textInput = (inputPesquisa.value + String.fromCharCode(e.keyCode))
+    produtos.forEach((elem) =>{
+        let textProduto = ''
+        for(let i = 0; i < textInput.length; i ++){
+                textProduto += elem.nome[i]
+        }
+        if(textProduto.toLocaleLowerCase() === textInput.toLocaleLowerCase()){
+            produtosPesquisados.push(elem)
+        }
+    })
+    obterInformacoesProdutos(produtosPesquisados,"Todos","Categoria")
+}
+
+
+//Login
 
 
 const buttonLogin = document.getElementById('imgLogin')
